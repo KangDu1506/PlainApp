@@ -7,7 +7,7 @@
              xmlns:services="clr-namespace:PlainApp.Services"
              xmlns:lang="clr-namespace:PlainApp.Languages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1200">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,9 +18,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"
-                              MinWidth="200"
-                              MaxWidth="500"/>
+            <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -92,13 +90,20 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Monday]}" Grid.Column="0" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Tuesday]}" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Wednesday]}" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Thursday]}" Grid.Column="3" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Friday]}" Grid.Column="4" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Saturday]}" Grid.Column="5" HorizontalAlignment="Center" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Sunday]}" Grid.Column="6" HorizontalAlignment="Center" FontWeight="Bold"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Monday]}" Grid.Column="0"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Tuesday]}" Grid.Column="1"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Wednesday]}" Grid.Column="2"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Thursday]}" Grid.Column="3"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Friday]}" Grid.Column="4"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Saturday]}" Grid.Column="5"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Sunday]}" Grid.Column="6"
+                               Style="{StaticResource DayOfWeekStyle}"/>
                 </Grid>
 
                 <ItemsControl Grid.Row="2" ItemsSource="{Binding DaysInMonth}">
@@ -118,6 +123,5 @@
                 </ItemsControl>
             </Grid>
         </Border>
-
     </Grid>
 </UserControl>
