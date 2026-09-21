@@ -11,6 +11,7 @@ namespace PlainApp.Models
         public string Title { get; set; } = "Default Title";
         public string Description { get; set; } = "Let's do something important!";
         public bool IsCompleted { get; set; } = false;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime DueDate { get; set; } = DateTime.Now.AddDays(7);
         public float Progress { get; set; } = 0.0f;
         public List<UserModel> AssignedUsers { get; set; } = new List<UserModel>();

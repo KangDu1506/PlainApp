@@ -7,5 +7,6 @@
     <SolidColorBrush x:Key="70%TransparentBlackBrush" Color="Black" Opacity="0.3"/>
     <SolidColorBrush x:Key="BareWhiteBrush" Color="White" Opacity="1"/>
     <SolidColorBrush x:Key="70%TransparentWhiteBrush" Color="White" Opacity="0.3"/>
+    <SolidColorBrush x:Key="BareGrayBrush" Color="Gray" Opacity="1"/>
     <!-- #endregion -->
 </ResourceDictionary>
