@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Black.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Bold.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-ExtraBold.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Light.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Medium.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Regular.ttf" />
+    <None Remove="Assets\Fonts\MPLUSRounded1c-Thin.ttf" />
+    <None Remove="Assets\Icons\NewIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Assets\Brushes.xaml" />
+    <Page Remove="Assets\ColorPalettes\DarkBluePalette.xaml" />
+    <Page Remove="Assets\ColorPalettes\LightBluePalette.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Brushes.xaml" />
+    <Resource Include="Assets\ColorPalettes\DarkBluePalette.xaml" />
+    <Resource Include="Assets\ColorPalettes\LightBluePalette.xaml" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Black.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Bold.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-ExtraBold.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Light.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Medium.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Regular.ttf" />
+    <Resource Include="Assets\Fonts\MPLUSRounded1c-Thin.ttf" />
+    <Resource Include="Assets\Icons\HomeIcon.png" />
+    <Resource Include="Assets\Icons\NewIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Languages\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Languages\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>PlainApp.Languages</CustomToolNamespace>
+    </EmbeddedResource>
+
+	  <EmbeddedResource Update="Languages\Strings.vi-VN.resx">
+		  <Generator>MSBuild:Compile</Generator>
+	  </EmbeddedResource>
+
+	  <EmbeddedResource Update="Languages\Strings.ja-JP.resx">
+		  <Generator>MSBuild:Compile</Generator>
+	  </EmbeddedResource>
+	  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Styles\Miscs\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+</Project>

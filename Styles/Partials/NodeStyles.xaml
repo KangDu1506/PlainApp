@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="NodeStyle" TargetType="Border">
+        <!-- Coloring -->
+        <Setter Property="Background" Value="{DynamicResource BareWhiteBrush}"/>
+        
+        <!-- Sizing -->
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="MinHeight" Value="150"/>
+        <Setter Property="MaxWidth" Value="600"/>
+        <Setter Property="MaxHeight" Value="400"/>
+        
+        <!-- Spacing -->
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="10"/>
+        
+        <!-- Border -->
+        <Setter Property="BorderBrush" Value="{DynamicResource LightBlueBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="CornerRadius" Value="7.5"/>
+    </Style>
+
+    <Style x:Key="NodeGridStyle" TargetType="Grid">
+        <!-- Spacing -->
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+    </Style>
+
+    <Style x:Key="NodeIndexNumberStyle" TargetType="TextBlock">
+        <!-- Coloring -->
+
+        <!-- Text -->
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{DynamicResource DarkBlueBrush}"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+
+        <!-- Sizing -->
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="20"/>
+    </Style>
+
+    <Style x:Key="NodeTitleStyle" TargetType="TextBlock">
+    </Style>
+
+    <Style x:Key="CompleteCheckButtonStyle" TargetType="Button">
+        <!-- Coloring -->
+        <Setter Property="Background" Value="Transparent"/>
+
+        <!-- Text -->
+        <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+
+        <!-- Sizing -->
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="20"/>
+        
+        <!-- Border -->
+        <Setter Property="BorderThickness" Value="0"/>
+        
+        <!-- Spacing -->
+        <Setter Property="Padding" Value="10 0"/>
+    </Style>
+
+    <Style x:Key="NodeDueDateStyle" TargetType="TextBlock">
+        <!-- -->
+    </Style>
+
+    <Style x:Key="NodeProgressStyle" TargetType="TextBlock">
+    </Style>
+    
+    
+</ResourceDictionary>

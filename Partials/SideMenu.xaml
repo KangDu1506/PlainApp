@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="PlainApp.Partials.SideMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlainApp.Partials"
+             xmlns:lang="clr-namespace:PlainApp.Languages"
+             xmlns:services="clr-namespace:PlainApp.Services"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Partials/SideMenuStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="OverlayBackground"
+                Grid.ColumnSpan="2"
+                Background="{DynamicResource DeepDarkBlueBrush}"
+                Opacity="0"/>
+
+        <Border x:Name="SideMenuContainer"
+                Width="80"
+                MinWidth="80"
+                CornerRadius="10"
+                Background="{DynamicResource SideMenuBackgroundOpacityBrush}"
+                Margin="10, 25"
+                HorizontalAlignment="Left"
+                MouseEnter="SideMenuContainer_MouseEnter"
+                MouseLeave="SideMenuContainer_MouseLeave">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0"
+                                HorizontalAlignment="Stretch">
+                        <Button x:Name="HomeTitle"
+                                Style="{StaticResource SideMenuPrimaryButtonStyle}"
+                                Tag="HomeTitle"
+                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[HomeTitle]}"
+                                Click="NavButton_Click">
+                            <Button.Resources>
+                                <ImageSource x:Key="Img">/Assets/Icons/HomeIcon.png</ImageSource>
+                            </Button.Resources>
+                        </Button>
+                        <Button x:Name="NewTitle"
+                                Style="{StaticResource SideMenuPrimaryButtonStyle}"
+                                Tag="NewTitle"
+                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[NewTitle]}"
+                                Click="NavButton_Click">
+                            <Button.Resources>
+                                <ImageSource x:Key="Img">/Assets/Icons/NewIcon.png</ImageSource>
+                            </Button.Resources>
+                        </Button>
+                            <Button x:Name="ArchiveTitle"
+                                Style="{StaticResource SideMenuPrimaryButtonStyle}"
+                                Tag="ArchiveTitle"
+                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[ArchiveTitle]}"
+                                Click="NavButton_Click"/>
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Row="2"
+                                HorizontalAlignment="Stretch">
+                        <Button Style="{StaticResource SideMenuButtonStyle}"
+                                Tag="SettingsTitle"
+                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[SettingsTitle]}"
+                                Click="NavButton_Click"/>
+                        <Button Style="{StaticResource SideMenuButtonStyle}"
+                                Margin="15, 15, 15, 15"
+                                Tag="HelpTitle"
+                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[HelpTitle]}"
+                                Click="NavButton_Click"/>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

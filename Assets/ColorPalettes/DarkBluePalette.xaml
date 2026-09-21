@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="DeepDarkBlue">#030B1E</Color>
+    <Color x:Key="DarkBlue">#091540</Color>
+    <Color x:Key="PrimaryBlue">#1B2CC1</Color>
+    <Color x:Key="MediumBlue">#3D5AFE</Color>
+    <Color x:Key="OutlineHightLighterBlue">#687ED9</Color>
+    <Color x:Key="LightBlue">#99BDDF</Color>
+    <Color x:Key="ExtremeLightBlue">#D9E6F5</Color>
+    <Color x:Key="PrimaryHighlighter">#FF6B6B</Color>
+    <Color x:Key="DimmerPrimaryHighlighter">#E05252</Color>
+
+    <!-- Default brushes -->
+    <!-- #region Default brushes -->
+    <SolidColorBrush x:Key="DeepDarkBlueBrush" Color="{DynamicResource DeepDarkBlue}" />
+    <SolidColorBrush x:Key="DarkBlueBrush" Color="{DynamicResource DarkBlue}" />
+    <SolidColorBrush x:Key="PrimaryBlueBrush" Color="{DynamicResource PrimaryBlue}" />
+    <SolidColorBrush x:Key="MediumBlueBrush" Color="{DynamicResource MediumBlue}" />
+    <SolidColorBrush x:Key="OutlineHightLighterBlueBrush" Color="{DynamicResource OutlineHightLighterBlue}" />
+    <SolidColorBrush x:Key="LightBlueBrush" Color="{DynamicResource LightBlue}" />
+    <SolidColorBrush x:Key="ExtremeLightBlueBrush" Color="{DynamicResource ExtremeLightBlue}" />
+    <SolidColorBrush x:Key="PrimaryHighlighterBrush" Color="{DynamicResource PrimaryHighlighter}" />
+    <SolidColorBrush x:Key="DimmerPrimaryHighlighterBrush" Color="{DynamicResource DimmerPrimaryHighlighter}" />
+    <!-- #endregion -->
+    
+    <!-- Extra brushes -->
+    <!-- #region SideMenu Extra brushes -->
+    <SolidColorBrush x:Key="SideMenuOpaqueOverlayBrush" Color="{DynamicResource DeepDarkBlue}" Opacity="0.3"/>
+    <SolidColorBrush x:Key="SideMenuTransparentOverlayBrush" Opacity="0"/>
+    <SolidColorBrush x:Key="SideMenuBackgroundOpacityBrush" Color="{DynamicResource MediumBlue}" Opacity="0.3"/>
+    <!-- endregion -->
+
+</ResourceDictionary>
