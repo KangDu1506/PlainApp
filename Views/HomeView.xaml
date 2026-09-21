@@ -21,7 +21,7 @@
             <ColumnDefinition Width="Auto"
                               MinWidth="200"
                               MaxWidth="500"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"
@@ -45,6 +45,7 @@
                 <Separator Grid.Row="1"
                            Margin="10 0"
                            Style="{StaticResource SperatorStyle}"/>
+                <Grid x:Name="TasksContainer"/>
             </Grid>
         </Border>
         
