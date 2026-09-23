@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="PlainApp.Views.HomeView"
+﻿    <UserControl x:Class="PlainApp.Views.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlainApp.Views"
              xmlns:services="clr-namespace:PlainApp.Services"
+             xmlns:converters="clr-namespace:PlainApp.Converters"
              xmlns:lang="clr-namespace:PlainApp.Languages"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1200">
@@ -13,115 +14,120 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Styles/Views/HomeViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <converters:MonthYearFormatConverter x:Key="MonthYearFormatConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"
                            MinHeight="150"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Border x:Name="UpcomingTasksContainer"
+            <Border x:Name="UpcomingTasksContainer"
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Style="{StaticResource UpcomingTasksContainerStyle}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[UpcomingTasks]}"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[UpcomingTasks]}"
                            Grid.Row="0"
                            HorizontalAlignment="Left"
                            Style="{StaticResource UpcomingTasksHeaderStyle}"/>
-                <Separator Grid.Row="1"
+                    <Separator Grid.Row="1"
                            Margin="10 0"
                            Style="{StaticResource SperatorStyle}"/>
-                <Grid x:Name="TasksContainer"/>
-            </Grid>
-        </Border>
+                    <Grid x:Name="TasksContainer"/>
+                </Grid>
+            </Border>
 
-        <Border x:Name="CalendarContainer"
+            <Border x:Name="CalendarContainer"
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{StaticResource CalendarContainerStyle}">
+                <Grid Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="0" Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button x:Name="PreviousMonthButton" Grid.Column="0" Content="◀"
-                            Style="{StaticResource CalendarMonthYearNavigationButtonStyle}"/>
-                    <TextBlock x:Name="MonthYearTextBlock"
+                        <Button x:Name="PreviousMonthButton" Grid.Column="0" Content="◀"
+                            Style="{StaticResource CalendarMonthYearNavigationButtonStyle}"
+                            Click="PreviousMonthButton_Click"/>
+                        <TextBlock x:Name="MonthYearTextBlock"
                        Grid.Column="1"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontWeight="Bold"
-                       FontSize="16"/>
-                    <Button x:Name="NextMonthButton" Grid.Column="2" Content="▶"
-                            Style="{StaticResource CalendarMonthYearNavigationButtonStyle}"/>
+                       Style="{StaticResource MonthYearTextBlockStyle}">
+                            <TextBlock.Text>
+                                <MultiBinding Converter="{StaticResource MonthYearFormatConverter}">
+                                    <Binding Path="CurrentMonth" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                    <Binding Path="CurrentYear" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                    <Binding Source="{x:Static services:LanguageManager.Instance}" Path="[Calendar_MonthYearFormat]"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <Button x:Name="NextMonthButton" Grid.Column="2" Content="▶"
+                            Style="{StaticResource CalendarMonthYearNavigationButtonStyle}"
+                            Click="NextMonthButton_Click"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,0,0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Monday]}" Grid.Column="0"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Tuesday]}" Grid.Column="1"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Wednesday]}" Grid.Column="2"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Thursday]}" Grid.Column="3"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Friday]}" Grid.Column="4"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Saturday]}" Grid.Column="5"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                        <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Sunday]}" Grid.Column="6"
+                               Style="{StaticResource DayOfWeekStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+
+                        <Grid x:Name="BackgroundGridLayer" Panel.ZIndex="0" VerticalAlignment="Top">
+                        </Grid>
+
+                        <Canvas x:Name="TaskOverlayCanvasLayer" 
+                                Panel.ZIndex="1" 
+                                Background="Transparent"
+                                VerticalAlignment="Top"
+                                SizeChanged="TaskOverlayCanvasLayer_SizeChanged"/>
+                    </Grid>
                 </Grid>
-
-                <Grid Grid.Row="1" Margin="0,0,0,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Monday]}" Grid.Column="0"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Tuesday]}" Grid.Column="1"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Wednesday]}" Grid.Column="2"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Thursday]}" Grid.Column="3"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Friday]}" Grid.Column="4"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Saturday]}" Grid.Column="5"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                    <Label Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Sunday]}" Grid.Column="6"
-                               Style="{StaticResource DayOfWeekStyle}"/>
-                </Grid>
-
-                <ItemsControl Grid.Row="2" ItemsSource="{Binding DaysInMonth}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="7"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="#F0F0F0" BorderThickness="0.5" Padding="4" MinHeight="60">
-                                <TextBlock Text="{Binding DayNumber}" HorizontalAlignment="Right"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </Border>
-    </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

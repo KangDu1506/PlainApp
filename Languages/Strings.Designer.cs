@@ -70,6 +70,15 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} / {1}.
+        /// </summary>
+        public static string Calendar_MonthYearFormat {
+            get {
+                return ResourceManager.GetString("Calendar_MonthYearFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
         public static string Friday {

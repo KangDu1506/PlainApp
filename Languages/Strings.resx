@@ -120,6 +120,9 @@
   <data name="ArchiveTitle" xml:space="preserve">
     <value>Archive</value>
   </data>
+  <data name="Calendar_MonthYearFormat" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
   </data>

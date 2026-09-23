@@ -120,6 +120,9 @@
   <data name="ArchiveTitle" xml:space="preserve">
     <value>アーカイブ</value>
   </data>
+  <data name="Calendar_MonthYearFormat" xml:space="preserve">
+    <value>{1}年 {0}月</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>金曜日</value>
   </data>

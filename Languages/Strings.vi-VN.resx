@@ -120,6 +120,9 @@
   <data name="ArchiveTitle" xml:space="preserve">
     <value>Lưu trữ</value>
   </data>
+  <data name="Calendar_MonthYearFormat" xml:space="preserve">
+    <value>Tháng {0} / {1}</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>Thứ Sáu</value>
   </data>
