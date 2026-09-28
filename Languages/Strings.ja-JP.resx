@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveTitle" xml:space="preserve">
-    <value>アーカイブ</value>
+  <data name="MyPlansTitle" xml:space="preserve">
+    <value>マイプラン</value>
   </data>
   <data name="Calendar_MonthYearFormat" xml:space="preserve">
     <value>{1}年 {0}月</value>
@@ -136,7 +136,7 @@
     <value>月曜日</value>
   </data>
   <data name="NewTitle" xml:space="preserve">
-    <value>新規作成</value>
+    <value>計画作成</value>
   </data>
   <data name="NodeCompleteButton" xml:space="preserve">
     <value>完了</value>
@@ -146,6 +146,18 @@
   </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>設定</value>
+  </data>
+  <data name="SortByEndDay" xml:space="preserve">
+    <value>終了日順</value>
+  </data>
+  <data name="SortByImportance" xml:space="preserve">
+    <value>重要度順</value>
+  </data>
+  <data name="SortByProgress" xml:space="preserve">
+    <value>進捗状況順</value>
+  </data>
+  <data name="SortByStartDay" xml:space="preserve">
+    <value>開始日順</value>
   </data>
   <data name="Sunday" xml:space="preserve">
     <value>日曜日</value>
@@ -167,5 +179,29 @@
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>水曜日</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>すべて</value>
+  </data>
+  <data name="FilterToday" xml:space="preserve">
+    <value>今日</value>
+  </data>
+  <data name="FilterIn7Days" xml:space="preserve">
+    <value>7日以内</value>
+  </data>
+  <data name="FilterIn30Days" xml:space="preserve">
+    <value>30日以内</value>
+  </data>
+  <data name="FilterThisMonth" xml:space="preserve">
+    <value>今月</value>
+  </data>
+  <data name="FilterThisYear" xml:space="preserve">
+    <value>今年</value>
+  </data>
+  <data name="OtherUsers" xml:space="preserve">
+    <value>他のユーザー</value>
+  </data>
+  <data name="CollaboratorsTitle" xml:space="preserve">
+    <value>協力者</value>
   </data>
 </root>

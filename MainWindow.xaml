@@ -6,11 +6,31 @@
         xmlns:local="clr-namespace:PlainApp"
         xmlns:partials="clr-namespace:PlainApp.Partials"
         xmlns:views="clr-namespace:PlainApp.Views"
+        xmlns:viewmodels="clr-namespace:PlainApp.ViewModels"
         mc:Ignorable="d" 
         d:DesignHeight="600" d:DesignWidth="800"
         Style="{StaticResource {x:Type Window}}"
-        WindowState="Maximized"
-        Title="MainWindow">
+        WindowState="Normal"
+        Title="MainWindow"
+        KeyDown="Window_KeyDown">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:HomeVM}">
+            <views:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:NewVM}">
+            <views:NewView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:MyPlansVM}">
+            <views:MyPlansView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:CollaboratorsVM}">
+            <views:CollaboratorsView/>
+        </DataTemplate>
+    </Window.Resources>
 
     <Grid x:Name="RootGrid">
         <Grid.ColumnDefinitions>
@@ -30,8 +50,11 @@
 
             <partials:Header Grid.Row="0"
                              x:Name="MainHeader"/>
-            <views:HomeView Grid.Row="1"
-                            x:Name="MainHomeView"/>
+            <ContentControl Grid.Row="1"
+                            x:Name="MainContentControl"
+                            Content="{Binding CurrentVM}"/>
         </Grid>
+        
+        
     </Grid>
 </Window>

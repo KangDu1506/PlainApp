@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArchiveTitle" xml:space="preserve">
-    <value>Lưu trữ</value>
+  <data name="MyPlansTitle" xml:space="preserve">
+    <value>Kế hoạch của tôi</value>
   </data>
   <data name="Calendar_MonthYearFormat" xml:space="preserve">
     <value>Tháng {0} / {1}</value>
@@ -136,7 +136,7 @@
     <value>Thứ Hai</value>
   </data>
   <data name="NewTitle" xml:space="preserve">
-    <value>Tạo mới</value>
+    <value>Lên kế hoạch</value>
   </data>
   <data name="NodeCompleteButton" xml:space="preserve">
     <value>Hoàn thành</value>
@@ -146,6 +146,18 @@
   </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Cài đặt</value>
+  </data>
+  <data name="SortByEndDay" xml:space="preserve">
+    <value>Theo ngày kết thúc</value>
+  </data>
+  <data name="SortByImportance" xml:space="preserve">
+    <value>Theo độ quan trọng</value>
+  </data>
+  <data name="SortByProgress" xml:space="preserve">
+    <value>Theo tiến trình</value>
+  </data>
+  <data name="SortByStartDay" xml:space="preserve">
+    <value>Theo ngày bắt đầu</value>
   </data>
   <data name="Sunday" xml:space="preserve">
     <value>Chủ Nhật</value>
@@ -167,5 +179,29 @@
   </data>
   <data name="Wednesday" xml:space="preserve">
     <value>Thứ tư</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Toàn bộ</value>
+  </data>
+  <data name="FilterToday" xml:space="preserve">
+    <value>Trg. hôm nay</value>
+  </data>
+  <data name="FilterIn7Days" xml:space="preserve">
+    <value>Trg. 7 ngày tới</value>
+  </data>
+  <data name="FilterIn30Days" xml:space="preserve">
+    <value>Trg. 30 ngày tới</value>
+  </data>
+  <data name="FilterThisMonth" xml:space="preserve">
+    <value>Trg. tháng này</value>
+  </data>
+  <data name="FilterThisYear" xml:space="preserve">
+    <value>Trg. năm nay</value>
+  </data>
+  <data name="OtherUsers" xml:space="preserve">
+    <value>Ng. dùng khác</value>
+  </data>
+  <data name="CollaboratorsTitle" xml:space="preserve">
+    <value>Người cộng tác</value>
   </data>
 </root>

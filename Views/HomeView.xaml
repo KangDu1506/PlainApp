@@ -18,11 +18,12 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                  CanContentScroll="False">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.3*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"
@@ -38,12 +39,48 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[UpcomingTasks]}"
-                           Grid.Row="0"
+                    <Grid Grid.Row="0"
+                          Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[UpcomingTasks]}"
+                           Grid.Column="0"
                            HorizontalAlignment="Left"
                            Style="{StaticResource UpcomingTasksHeaderStyle}"/>
+                        <Button x:Name="RefreshButton"
+                                Grid.Column="1"
+                                Content="🔄"
+                                Style="{StaticResource HomeViewRefreshButtonStyle}"
+                                Click="RefreshButton_Click"/>
+                        <ComboBox x:Name="SortComboBox"
+                                  Grid.Column="2"
+                                  SelectedIndex="0"
+                                  Style="{StaticResource HomeViewSelectorComboBoxStyle}"
+                                  SelectionChanged="SortComboBox_SelectionChanged">
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[SortByStartDay]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[SortByEndDay]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[SortByProgress]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[SortByImportance]}"/>
+                        </ComboBox>
+                        <ComboBox x:Name="FilterComboBox"
+                                  Grid.Column="3"
+                                  SelectedIndex="0"
+                                  Style="{StaticResource HomeViewSelectorComboBoxStyle}"
+                                  SelectionChanged="FilterComboBox_SelectionChanged">
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterAll]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterToday]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterIn7Days]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterIn30Days]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterThisMonth]}"/>
+                            <ComboBoxItem Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[FilterThisYear]}"/>
+                        </ComboBox>
+                    </Grid>
                     <Separator Grid.Row="1"
                            Margin="10 0"
                            Style="{StaticResource SperatorStyle}"/>
@@ -52,8 +89,7 @@
             </Border>
 
             <Border x:Name="CalendarContainer"
-                Grid.Row="1"
-                Grid.Column="1"
+                Grid.Row="1" Grid.Column="0"
                 Style="{StaticResource CalendarContainerStyle}">
                 <Grid Height="Auto">
                     <Grid.RowDefinitions>
@@ -126,6 +162,27 @@
                                 VerticalAlignment="Top"
                                 SizeChanged="TaskOverlayCanvasLayer_SizeChanged"/>
                     </Grid>
+                </Grid>
+            </Border>
+
+            <Border x:Name="OtherUsersOnlineStatusContainer"
+                    Grid.Row="1" Grid.Column="1"
+                    Padding="10"
+                    Style="{StaticResource OtherUsersOnlineStatusContainerStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[OtherUsers]}"
+                               Grid.Row="0"
+                               Style="{StaticResource OtherUsersOnlineStatusHeaderStyle}"/>
+
+                    <Separator Grid.Row="1"
+                               Style="{StaticResource SperatorStyle}"/>
+
                 </Grid>
             </Border>
         </Grid>

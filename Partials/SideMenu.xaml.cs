@@ -95,8 +95,6 @@ namespace PlainApp.Partials
             {
                 OnNavigationRequested?.Invoke(key);
             }
-
-            CollapseMenu();
         }
     }
 }

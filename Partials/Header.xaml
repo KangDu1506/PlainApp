@@ -15,11 +15,12 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border Height="100"
+    <Border Height="Auto"
             Margin="10 25"
+            Padding="20, 5, 10, 5"
             Background="{DynamicResource 70%TransparentBlackBrush}"
             CornerRadius="10">
-        <Grid Height="80">
+        <Grid Height="Auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -31,7 +32,8 @@
                        Style="{StaticResource AppHeaderTextBlock}"/>
 
             <Grid Grid.Column="2"
-                  HorizontalAlignment="Right">
+                  HorizontalAlignment="Right"
+                  Height="Auto">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>

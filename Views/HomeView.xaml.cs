@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using PlainApp.Services;
@@ -18,7 +17,6 @@ namespace PlainApp.Views
             set => SetValue(CurrentMonthProperty, value);
         }
 
-        // 2. Khai báo DependencyProperty cho CurrentYear
         public static readonly DependencyProperty CurrentYearProperty =
             DependencyProperty.Register(nameof(CurrentYear), typeof(int), typeof(HomeView),
                 new FrameworkPropertyMetadata(DateTime.Now.Year, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
@@ -37,35 +35,28 @@ namespace PlainApp.Views
 
         private void RenderCalendarSkeleton(int month, int year)
         {
-            // Reset dữ liệu Lưới Layer 1 & Canvas Layer 2
             BackgroundGridLayer.Children.Clear();
             BackgroundGridLayer.RowDefinitions.Clear();
             BackgroundGridLayer.ColumnDefinitions.Clear();
             TaskOverlayCanvasLayer.Children.Clear();
 
-            // Lấy số tuần và offset bằng ValueTuple[cite: 1]
             (int weeksInMonth, int offset) = CalenderGenerator.GetWeekCountOfMonth(month, year);
 
-            // 1. Dựng 7 Cột cố định (Thứ 2 -> Chủ Nhật)
             for (int c = 0; c < 7; c++)
             {
                 BackgroundGridLayer.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             }
 
-            // 2. Dựng N Hàng động tương ứng số tuần của tháng
             for (int r = 0; r < weeksInMonth; r++)
             {
                 BackgroundGridLayer.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             }
 
-            // Set explicit pixel height so the ScrollViewer can scroll when content is larger than viewport.
-            // Use a reasonable default row height; adjust as needed for your UI.
             double rowPixelHeight = 120.0;
             double totalHeight = weeksInMonth * rowPixelHeight;
             BackgroundGridLayer.Height = totalHeight;
             TaskOverlayCanvasLayer.Height = totalHeight;
 
-            // 3. Render các ô Ngày vào Layer 1
             int daysInMonth = DateTime.DaysInMonth(year, month);
             int currentDay = 1;
 
@@ -73,7 +64,7 @@ namespace PlainApp.Views
             {
                 for (int col = 0; col < 7; col++)
                 {
-                    int cellIndex = (row * 7) + col;
+                    int cellIndex = row * 7 + col;
 
                     if (cellIndex >= offset && currentDay <= daysInMonth)
                     {
@@ -100,9 +91,9 @@ namespace PlainApp.Views
             Border border = new Border
             {
                 BorderBrush = new SolidColorBrush(Color.FromArgb(40, 240, 240, 240)),
-                BorderThickness = new Thickness(0.5),
+                BorderThickness = new Thickness(1.0),
                 Background = Brushes.Transparent,
-                Padding = new Thickness(4)
+                Padding = new Thickness(4)                
             };
 
             Grid cellGrid = new Grid();
@@ -129,7 +120,7 @@ namespace PlainApp.Views
             return new Border
             {
                 BorderBrush = new SolidColorBrush(Color.FromArgb(15, 240, 240, 240)),
-                BorderThickness = new Thickness(0.5),
+                BorderThickness = new Thickness(1.0),
                 Background = new SolidColorBrush(Color.FromArgb(5, 0, 0, 0))
             };
         }
@@ -152,7 +143,25 @@ namespace PlainApp.Views
 
         private void TaskOverlayCanvasLayer_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            // Sẽ dùng ở bước vẽ Task Spanning Bars lên Canvas
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Refresh lại dữ liệu Task từ ViewModel
+            if (DataContext is ViewModels.HomeVM homeVM)
+            {
+                homeVM.RefreshTasksContainerData();
+            }
+        }
+
+        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

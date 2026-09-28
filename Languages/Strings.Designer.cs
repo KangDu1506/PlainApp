@@ -61,20 +61,74 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Archive.
-        /// </summary>
-        public static string ArchiveTitle {
-            get {
-                return ResourceManager.GetString("ArchiveTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {0} / {1}.
         /// </summary>
         public static string Calendar_MonthYearFormat {
             get {
                 return ResourceManager.GetString("Calendar_MonthYearFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collaborators.
+        /// </summary>
+        public static string CollaboratorsTitle {
+            get {
+                return ResourceManager.GetString("CollaboratorsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string FilterAll {
+            get {
+                return ResourceManager.GetString("FilterAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In 30 Days.
+        /// </summary>
+        public static string FilterIn30Days {
+            get {
+                return ResourceManager.GetString("FilterIn30Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In 7 Days.
+        /// </summary>
+        public static string FilterIn7Days {
+            get {
+                return ResourceManager.GetString("FilterIn7Days", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Month.
+        /// </summary>
+        public static string FilterThisMonth {
+            get {
+                return ResourceManager.GetString("FilterThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Year.
+        /// </summary>
+        public static string FilterThisYear {
+            get {
+                return ResourceManager.GetString("FilterThisYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Today.
+        /// </summary>
+        public static string FilterToday {
+            get {
+                return ResourceManager.GetString("FilterToday", resourceCulture);
             }
         }
         
@@ -115,7 +169,16 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New.
+        ///   Looks up a localized string similar to My Plans.
+        /// </summary>
+        public static string MyPlansTitle {
+            get {
+                return ResourceManager.GetString("MyPlansTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Plan.
         /// </summary>
         public static string NewTitle {
             get {
@@ -129,6 +192,15 @@ namespace PlainApp.Languages {
         public static string NodeCompleteButton {
             get {
                 return ResourceManager.GetString("NodeCompleteButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Users.
+        /// </summary>
+        public static string OtherUsers {
+            get {
+                return ResourceManager.GetString("OtherUsers", resourceCulture);
             }
         }
         
@@ -147,6 +219,42 @@ namespace PlainApp.Languages {
         public static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By Ending Day.
+        /// </summary>
+        public static string SortByEndDay {
+            get {
+                return ResourceManager.GetString("SortByEndDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By Importance.
+        /// </summary>
+        public static string SortByImportance {
+            get {
+                return ResourceManager.GetString("SortByImportance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By Progress.
+        /// </summary>
+        public static string SortByProgress {
+            get {
+                return ResourceManager.GetString("SortByProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By Starting Day.
+        /// </summary>
+        public static string SortByStartDay {
+            get {
+                return ResourceManager.GetString("SortByStartDay", resourceCulture);
             }
         }
         

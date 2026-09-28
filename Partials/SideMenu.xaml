@@ -52,7 +52,7 @@
                                 Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[HomeTitle]}"
                                 Click="NavButton_Click">
                             <Button.Resources>
-                                <ImageSource x:Key="Img">/Assets/Icons/HomeIcon.png</ImageSource>
+                                <ImageSource x:Key="Img">../Assets/Icons/HomeIcon.png</ImageSource>
                             </Button.Resources>
                         </Button>
                         <Button x:Name="NewTitle"
@@ -61,14 +61,19 @@
                                 Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[NewTitle]}"
                                 Click="NavButton_Click">
                             <Button.Resources>
-                                <ImageSource x:Key="Img">/Assets/Icons/NewIcon.png</ImageSource>
+                                <ImageSource x:Key="Img">../Assets/Icons/NewIcon.png</ImageSource>
                             </Button.Resources>
                         </Button>
-                            <Button x:Name="ArchiveTitle"
-                                Style="{StaticResource SideMenuPrimaryButtonStyle}"
-                                Tag="ArchiveTitle"
-                                Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[ArchiveTitle]}"
-                                Click="NavButton_Click"/>
+                        <Button x:Name="MyPlansTitle"
+                            Style="{StaticResource SideMenuPrimaryButtonStyle}"
+                            Tag="MyPlansTitle"
+                            Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[MyPlansTitle]}"
+                            Click="NavButton_Click"/>
+                        <Button x:Name="CollaboratorsTitle"
+                            Style="{StaticResource SideMenuPrimaryButtonStyle}"
+                            Tag="CollaboratorsTitle"
+                            Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[CollaboratorsTitle]}"
+                            Click="NavButton_Click"/>
                     </StackPanel>
                     
                     <StackPanel Grid.Row="2"

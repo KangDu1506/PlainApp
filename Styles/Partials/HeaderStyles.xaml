@@ -19,7 +19,8 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
         <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Height" Value="50"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Padding" Value="10, 5"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         
@@ -46,7 +47,7 @@
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter TargetName="itemBorder" Property="Background" Value="{DynamicResource PrimaryHighlighterBrush}"/>
-                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Foreground" Value="{DynamicResource DeepDarkBlueBrush}"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -116,7 +117,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="templateRoot" Property="Background" Value="{DynamicResource PrimaryHighlighterBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource BareBlackBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DeepDarkBlueBrush}"/>
                             
                         </Trigger>
                     </ControlTemplate.Triggers>

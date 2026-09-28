@@ -11,7 +11,16 @@
     <Compile Update="Partials\SideMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\CollaboratorsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MyPlansView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NewView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
