@@ -204,4 +204,40 @@
   <data name="CollaboratorsTitle" xml:space="preserve">
     <value>Người cộng tác</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>Mặc định</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Bộ lọc</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Độ ưu tiên</value>
+  </data>
+  <data name="Creator" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="HideUnhide" xml:space="preserve">
+    <value>Ẩn/Hiện</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Thời hạn</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Tiến độ</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="PlanSearchBarPlaceholder" xml:space="preserve">
+    <value>Tìm 1 Kế hoạch hoặc 1 Người lên kế hoạch</value>
+  </data>
 </root>

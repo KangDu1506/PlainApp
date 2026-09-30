@@ -84,9 +84,10 @@
                         <Popup x:Name="PART_Popup"
                            AllowsTransparency="True"
                            IsOpen="{TemplateBinding IsDropDownOpen}"
-                           Placement="Bottom">
+                           Placement="Bottom"
+                           PlacementTarget="{Binding ElementName=templateRoot}">
                             <Border x:Name="dropDownBorder"
-                                MinWidth="{Binding ActualWidth, ElementName=MainGrid}"
+                                MinWidth="{Binding ActualWidth, ElementName=templateRoot}"
                                 MaxHeight="{TemplateBinding MaxDropDownHeight}"
                                 Background="#252526"
                                 BorderBrush="#3F3F46"
@@ -105,7 +106,6 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="templateRoot" Property="Background" Value="{DynamicResource PrimaryHighlighterBrush}"/>
                             <Setter Property="Foreground" Value="{DynamicResource DeepDarkBlueBrush}"/>
-
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -119,5 +119,11 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Width" Value="40"/>
+    </Style>
+    
+    <Style x:Key="SperatorStyle" TargetType="Separator">
+        <Setter Property="Background" Value="{DynamicResource LightBlueBrush}"/>
+        <Setter Property="Height" Value="5"/>
+        <Setter Property="Margin" Value="10,0"/>
     </Style>
 </ResourceDictionary>

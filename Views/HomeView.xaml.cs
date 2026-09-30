@@ -147,7 +147,6 @@ namespace PlainApp.Views
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            // Refresh lại dữ liệu Task từ ViewModel
             if (DataContext is ViewModels.HomeVM homeVM)
             {
                 homeVM.RefreshTasksContainerData();

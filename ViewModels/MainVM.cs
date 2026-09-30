@@ -20,6 +20,8 @@
             {
                 "HomeTitle" => new HomeVM(),
                 "MyPlansTitle" => new MyPlansVM(),
+                "NewTitle" => new NewVM(),
+                "CollaboratorsTitle" => new CollaboratorsVM(),
                 _ => CurrentVM
             };
         }

@@ -9,6 +9,7 @@
     <Color x:Key="ExtremeLightBlue">#FAFAFA</Color>
     <Color x:Key="PrimaryHighlighter">#FF477E</Color>
     <Color x:Key="DimmerPrimaryHighlighter">#E0366B</Color>
+    <Color x:Key="ProgressBarColor">lightgreen</Color>
 
     <!-- Default brushes -->
     <!--#region Default brushes -->
@@ -21,6 +22,7 @@
     <SolidColorBrush x:Key="ExtremeLightBlueBrush" Color="{DynamicResource ExtremeLightBlue}" />
     <SolidColorBrush x:Key="PrimaryHighlighterBrush" Color="{DynamicResource PrimaryHighlighter}" />
     <SolidColorBrush x:Key="DimmerPrimaryHighlighterBrush" Color="{DynamicResource DimmerPrimaryHighlighter}" />
+    <SolidColorBrush x:Key="ProgressBarBrush" Color="{DynamicResource ProgressBarColor}"/>
     <!--#endregion-->
     
     <!-- Extra brushes -->

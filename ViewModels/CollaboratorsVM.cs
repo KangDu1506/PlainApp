@@ -2,5 +2,6 @@
 {
     public class CollaboratorsVM : BaseVM
     {
+        public CollaboratorsVM() { }
     }
 }

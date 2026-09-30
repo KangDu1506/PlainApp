@@ -6,12 +6,12 @@
         Folder,
         URL,
     }
-    abstract class AExternalSource
+    public abstract class AExternalSource
     {
         public SourceType Type { get; private set; }
     }
 
-    class FileModel : AExternalSource
+    public class FileModel : AExternalSource
     {
         public string Name { get; set; } = string.Empty;
         public string RelativePath { get; set; } = string.Empty;
@@ -19,7 +19,7 @@
         public string Extension { get; set; } = string.Empty;
     }
 
-    class FolderModel : AExternalSource
+    public class FolderModel : AExternalSource
     {
         public string Name { get; set; } = string.Empty;
         public string RelativePath { get; set; } = string.Empty;
@@ -27,7 +27,7 @@
         public List<AExternalSource> Children { get; set; } = new List<AExternalSource>();
     }
 
-    class URLModel : AExternalSource
+    public class URLModel : AExternalSource
     {
         public string Name { get; set; } = string.Empty;
         public string URL { get; set; } = string.Empty;
