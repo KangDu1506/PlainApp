@@ -178,7 +178,7 @@
     <value>Các Nhiệm vụ sắp tới</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Thứ tư</value>
+    <value>Thứ Tư</value>
   </data>
   <data name="FilterAll" xml:space="preserve">
     <value>Toàn bộ</value>
@@ -239,5 +239,8 @@
   </data>
   <data name="PlanSearchBarPlaceholder" xml:space="preserve">
     <value>Tìm 1 Kế hoạch hoặc 1 Người lên kế hoạch</value>
+  </data>
+  <data name="DateFormat_Full" xml:space="preserve">
+    <value>dddd, 'ngày' d 'tháng' M, yyyy HH:mm</value>
   </data>
 </root>

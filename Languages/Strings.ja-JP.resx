@@ -240,4 +240,7 @@
   <data name="PlanSearchBarPlaceholder" xml:space="preserve">
     <value>計画または作成者を検索</value>
   </data>
+  <data name="DateFormat_Full" xml:space="preserve">
+    <value>yyyy年M月d日(dddd) HH:mm</value>
+  </data>
 </root>

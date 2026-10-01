@@ -5,8 +5,12 @@
     <!-- #region Simple Color Brushes -->
     <SolidColorBrush x:Key="BareBlackBrush" Color="Black" Opacity="1"/>
     <SolidColorBrush x:Key="70%TransparentBlackBrush" Color="Black" Opacity="0.3"/>
+    <SolidColorBrush x:Key="50%TransparentBlackBrush" Color="Black" Opacity="0.5"/>
+    <SolidColorBrush x:Key="30%TransparentBlackBrush" Color="Black" Opacity="0.7"/>
     <SolidColorBrush x:Key="BareWhiteBrush" Color="White" Opacity="1"/>
     <SolidColorBrush x:Key="70%TransparentWhiteBrush" Color="White" Opacity="0.3"/>
+    <SolidColorBrush x:Key="50%TransparentWhiteBrush" Color="White" Opacity="0.5"/>
+    <SolidColorBrush x:Key="30%TransparentWhiteBrush" Color="White" Opacity="0.7"/>
     <SolidColorBrush x:Key="BareGrayBrush" Color="Gray" Opacity="1"/>
     <!-- #endregion -->
 </ResourceDictionary>

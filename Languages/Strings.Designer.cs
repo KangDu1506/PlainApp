@@ -106,6 +106,15 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dddd, MMMM d, yyyy HH:mm.
+        /// </summary>
+        public static string DateFormat_Full {
+            get {
+                return ResourceManager.GetString("DateFormat_Full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string Default {

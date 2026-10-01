@@ -240,4 +240,7 @@
   <data name="PlanSearchBarPlaceholder" xml:space="preserve">
     <value>Search for a Plan or a Creator</value>
   </data>
+  <data name="DateFormat_Full" xml:space="preserve">
+    <value>dddd, MMMM d, yyyy HH:mm</value>
+  </data>
 </root>

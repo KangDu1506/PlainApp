@@ -15,6 +15,7 @@
         <ResourceDictionary>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
             <services:BindingProxy x:Key="VMProxy" Data="{Binding}" />
+            <services:DateTimeLocalizer x:Key="DateTimeLocalizer" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Views/MyPlansViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -92,12 +93,12 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <Menu Grid.Row="0"
-                          Grid.Column="1"
+                          Grid.Column="0"
                           Style="{StaticResource HideUnhideMenu}">
                         <MenuItem Header="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[HideUnhide]}"
                                   x:Name="HideUnhideMenuItem">
@@ -140,16 +141,30 @@
                                                     Visibility="Visible"/>
 
                                 <DataGridTextColumn Header="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[CreateDate]}"
-                                                    Binding="{Binding CreatedDate, StringFormat={}{0:dddd d MMMM yyyy HH:mm}}"
                                                     ElementStyle="{StaticResource DataGridTextBlockEllipsisStyle}"
                                                     Width="Auto"
-                                                    Visibility="{Binding Data.ShowCreateDate, Source={StaticResource VMProxy}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                    SortMemberPath="CreatedDate"
+                                                    Visibility="{Binding Data.ShowCreateDate, Source={StaticResource VMProxy}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <DataGridTextColumn.Binding>
+                                        <MultiBinding Converter="{StaticResource DateTimeLocalizer}">
+                                            <Binding Path="CreatedDate" />
+                                            <Binding Source="{x:Static services:LanguageManager.Instance}" Path="[DateFormat_Full]" />
+                                        </MultiBinding>
+                                    </DataGridTextColumn.Binding>
+                                </DataGridTextColumn>
 
                                 <DataGridTextColumn Header="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DueDate]}"
-                                                    Binding="{Binding DueDate, StringFormat={}{0:dddd d MMMM yyyy HH:mm}}"
                                                     ElementStyle="{StaticResource DataGridTextBlockEllipsisStyle}"
                                                     Width="Auto"
-                                                    Visibility="{Binding Data.ShowDueDate, Source={StaticResource VMProxy}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                                    SortMemberPath="DueDate"
+                                                    Visibility="{Binding Data.ShowDueDate, Source={StaticResource VMProxy}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                    <DataGridTextColumn.Binding>
+                                        <MultiBinding Converter="{StaticResource DateTimeLocalizer}">
+                                            <Binding Path="DueDate" />
+                                            <Binding Source="{x:Static services:LanguageManager.Instance}" Path="[DateFormat_Full]" />
+                                        </MultiBinding>
+                                    </DataGridTextColumn.Binding>
+                                </DataGridTextColumn>
 
                                 <DataGridTextColumn Header="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Priority]}"
                                                     Binding="{Binding Priority}"
