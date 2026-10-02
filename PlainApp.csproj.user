@@ -8,6 +8,9 @@
     <Compile Update="Partials\SideMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Partials\TaskEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\CollaboratorsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

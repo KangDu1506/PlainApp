@@ -109,8 +109,8 @@
                             Style="{StaticResource CalendarMonthYearNavigationButtonStyle}"
                             Click="PreviousMonthButton_Click"/>
                         <TextBlock x:Name="MonthYearTextBlock"
-                       Grid.Column="1"
-                       Style="{StaticResource MonthYearTextBlockStyle}">
+                                   Grid.Column="1"
+                                   Style="{StaticResource MonthYearTextBlockStyle}">
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource MonthYearFormatConverter}">
                                     <Binding Path="CurrentMonth" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
