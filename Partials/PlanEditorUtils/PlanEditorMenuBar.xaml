@@ -14,7 +14,36 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
-        
-    </Grid>
+    <Border Style="{StaticResource MenuBarContainer}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    x:Name="UserContainer"/>
+
+            <Button x:Name="PlanConfigButton"
+                    Grid.Column="1"
+                    Tag="⚙️"
+                    Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Config]}"
+                    Style="{StaticResource MenuButtonStyle}"/>
+
+            <Button x:Name="AddTaskButton"
+                    Grid.Column="2"
+                    Tag="➕"
+                    Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddTask]}"
+                    Style="{StaticResource MenuButtonStyle}"/>
+            
+            <Button x:Name="TabsButton"
+                    Grid.Column="3"
+                    Tag="📑"
+                    Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Tabs]}"
+                    Style="{StaticResource MenuButtonStyle}"/>
+
+        </Grid>
+    </Border>
 </UserControl>

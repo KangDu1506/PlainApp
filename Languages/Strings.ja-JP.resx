@@ -243,4 +243,13 @@
   <data name="DateFormat_Full" xml:space="preserve">
     <value>yyyy年M月d日(dddd) HH:mm</value>
   </data>
+  <data name="Config" xml:space="preserve">
+    <value>計画設定</value>
+  </data>
+  <data name="AddTask" xml:space="preserve">
+    <value>タスクを追加</value>
+  </data>
+  <data name="Tabs" xml:space="preserve">
+    <value>タブ</value>
+  </data>
 </root>

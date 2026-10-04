@@ -243,4 +243,13 @@
   <data name="DateFormat_Full" xml:space="preserve">
     <value>dddd, MMMM d, yyyy HH:mm</value>
   </data>
+  <data name="Config" xml:space="preserve">
+    <value>Plan Configuration</value>
+  </data>
+  <data name="AddTask" xml:space="preserve">
+    <value>Add a Task</value>
+  </data>
+  <data name="Tabs" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
 </root>

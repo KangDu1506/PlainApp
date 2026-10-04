@@ -4,9 +4,54 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlainApp.Views"
+             xmlns:services="clr-namespace:PlainApp.Services"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Views/CollaboratorsViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="7*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CollaboratorsViewMainContainer}"
+                Margin="10, 5, 5, 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{StaticResource SearchLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Search]}"/>
+
+                <TextBox x:Name="CollaboratorSearchTextBox"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Style="{StaticResource SearchTextBox}"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="1"
+                Margin="5, 5, 10, 20"
+                Style="{StaticResource CollaboratorsViewMainContainer}">
             
+        </Border>
+                
     </Grid>
 </UserControl>

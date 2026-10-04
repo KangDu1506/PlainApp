@@ -243,4 +243,13 @@
   <data name="DateFormat_Full" xml:space="preserve">
     <value>dddd, 'ngày' d 'tháng' M, yyyy HH:mm</value>
   </data>
+  <data name="Config" xml:space="preserve">
+    <value>Cấu hình Kế hoạch</value>
+  </data>
+  <data name="AddTask" xml:space="preserve">
+    <value>Thêm 1 nhiệm vụ</value>
+  </data>
+  <data name="Tabs" xml:space="preserve">
+    <value>Các thẻ</value>
+  </data>
 </root>

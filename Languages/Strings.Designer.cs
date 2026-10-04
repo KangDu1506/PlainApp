@@ -61,6 +61,15 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add a Task.
+        /// </summary>
+        public static string AddTask {
+            get {
+                return ResourceManager.GetString("AddTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} / {1}.
         /// </summary>
         public static string Calendar_MonthYearFormat {
@@ -75,6 +84,15 @@ namespace PlainApp.Languages {
         public static string CollaboratorsTitle {
             get {
                 return ResourceManager.GetString("CollaboratorsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan Configuration.
+        /// </summary>
+        public static string Config {
+            get {
+                return ResourceManager.GetString("Config", resourceCulture);
             }
         }
         
@@ -372,6 +390,15 @@ namespace PlainApp.Languages {
         public static string Sunday {
             get {
                 return ResourceManager.GetString("Sunday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs {
+            get {
+                return ResourceManager.GetString("Tabs", resourceCulture);
             }
         }
         
