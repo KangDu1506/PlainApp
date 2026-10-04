@@ -2,7 +2,7 @@
 {
     class MainVM : BaseVM
     {
-        private BaseVM _currentVM = null;
+        private BaseVM _currentVM = new HomeVM();
 
         public BaseVM CurrentVM
         {

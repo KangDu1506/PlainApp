@@ -140,7 +140,7 @@
 
                             <TextBlock x:Name="placeholderText"
                                    Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[PlanSearchBarPlaceholder]}"
-                                   Margin="{TemplateBinding Padding}"
+                                   Margin="25, 5, 48, 5"
                                    Foreground="{DynamicResource DarkBlueBrush}"
                                    Opacity="0.6"
                                    VerticalAlignment="Center"

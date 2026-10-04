@@ -5,10 +5,13 @@
     <Compile Update="Partials\Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Partials\SideMenu.xaml.cs">
+    <Compile Update="Partials\PlanEditorUtils\PlanEditorMenuBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Partials\TaskEditor.xaml.cs">
+    <Compile Update="Partials\PlanEditorUtils\TaskEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Partials\SideMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\CollaboratorsView.xaml.cs">

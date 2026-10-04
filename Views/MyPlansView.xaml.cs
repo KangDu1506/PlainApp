@@ -1,4 +1,4 @@
-﻿using System;
+﻿using PlainApp.Enums;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -49,7 +49,7 @@ namespace PlainApp.Views
                     Note = "Generated sample",
                     Priority = (i % 5) + 1,
                     Progress = (float)rng.Next(0, 101),
-                    Status = PlanModel.StatusStrings[rng.Next(PlanModel.StatusStrings.Count)],
+                    Status = (PlanStatusCode)rng.Next(Enum.GetValues(typeof(PlanStatusCode)).Length),
                     CreatedDate = DateTime.Now.AddDays(-rng.Next(0, 30)),
                     DueDate = DateTime.Now.AddDays(rng.Next(1, 60)),
                     Creator = creator
