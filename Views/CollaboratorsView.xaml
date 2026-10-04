@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlainApp.Views"
              xmlns:services="clr-namespace:PlainApp.Services"
+             xmlns:models="clr-namespace:PlainApp.Models"
+             xmlns:enums="clr-namespace:PlainApp.Enums"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -12,6 +14,95 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Views/CollaboratorsViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="ChatListTemplate">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Danh sách các đoạn chat" 
+                               FontSize="16" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+
+                    <StackPanel Grid.Row="1">
+                        <Button Content="💬 Chat với Nguyễn Văn A" 
+                                Height="40" Margin="0,0,0,5"
+                                Click="OpenChatDetail_Click"/>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ChatDetailTemplate">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" 
+                                Content="◀ Danh sách" 
+                                Padding="8,4" Margin="0,0,10,0"
+                                Click="BackToChatList_Click"/>
+
+                        <TextBlock Grid.Column="1" 
+                                   Text="Nguyễn Văn A" 
+                                   FontSize="16" FontWeight="Bold" Foreground="White"
+                                   VerticalAlignment="Center"/>
+
+                        <Button Grid.Column="2" 
+                                Content="ℹ️ Thông tin" 
+                                Padding="8,4"
+                                Click="OpenChatInfo_Click"/>
+                    </Grid>
+
+                    <Border Grid.Row="1" Background="#1E1E2E" CornerRadius="8" Padding="10">
+                        <TextBlock Text="[Nội dung tin nhắn hội thoại sẽ hiển thị ở đây...]" 
+                                   Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ChatInfoTemplate">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" 
+                                Content="◀ Quay lại Chat" 
+                                Padding="8,4" Margin="0,0,10,0"
+                                Click="BackToChatDetail_Click"/>
+
+                        <TextBlock Grid.Column="1" 
+                                   Text="Thông tin đoạn chat" 
+                                   FontSize="16" FontWeight="Bold" Foreground="White"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Border Grid.Row="1" Background="#1E1E2E" CornerRadius="8" Padding="15">
+                        <StackPanel>
+                            <TextBlock Text="Thành viên: Nguyễn Văn A" Foreground="White" FontSize="14" Margin="0,0,0,10"/>
+                            <TextBlock Text="Email: nguyenvana@example.com" Foreground="Gray" Margin="0,0,0,5"/>
+                            <TextBlock Text="Vai trò: Collaborator" Foreground="Gray"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
@@ -50,7 +141,29 @@
         <Border Grid.Column="1"
                 Margin="5, 5, 10, 20"
                 Style="{StaticResource CollaboratorsViewMainContainer}">
-            
+
+            <ContentControl x:Name="RightContentArea">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="ContentTemplate" Value="{StaticResource ChatListTemplate}"/>
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding CurrentRightView}" Value="{x:Static enums:CollaboratorRightViewType.ChatDetail}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ChatDetailTemplate}"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding CurrentRightView}" Value="{x:Static enums:CollaboratorRightViewType.ChatInfo}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ChatInfoTemplate}"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding CurrentRightView}" Value="{x:Static enums:CollaboratorRightViewType.ChatList}">
+                                <Setter Property="ContentTemplate" Value="{StaticResource ChatListTemplate}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+
         </Border>
                 
     </Grid>
