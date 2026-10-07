@@ -69,11 +69,12 @@
                             Tag="MyPlansTitle"
                             Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[MyPlansTitle]}"
                             Click="NavButton_Click"/>
+                        <!--
                         <Button x:Name="CollaboratorsTitle"
                             Style="{StaticResource SideMenuPrimaryButtonStyle}"
                             Tag="CollaboratorsTitle"
                             Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[CollaboratorsTitle]}"
-                            Click="NavButton_Click"/>
+                            Click="NavButton_Click"/>--> <!-- Closure for repairing -->
                     </StackPanel>
                     
                     <StackPanel Grid.Row="2"
