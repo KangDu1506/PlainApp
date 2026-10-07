@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Styles\Miscs\**" />
+    <EmbeddedResource Remove="Styles\Miscs\**" />
+    <None Remove="Styles\Miscs\**" />
+    <Page Remove="Styles\Miscs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\Fonts\MPLUSRounded1c-Black.ttf" />
     <None Remove="Assets\Fonts\MPLUSRounded1c-Bold.ttf" />
     <None Remove="Assets\Fonts\MPLUSRounded1c-ExtraBold.ttf" />
@@ -63,9 +70,5 @@
 		  <Generator>MSBuild:Compile</Generator>
 	  </EmbeddedResource>
 	  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Styles\Miscs\" />
-  </ItemGroup>
 
 </Project>

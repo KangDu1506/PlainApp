@@ -29,9 +29,9 @@ namespace PlainApp.Views
 
             var creators = new[]
             {
-                new UserModel { Name = "Alice" },
-                new UserModel { Name = "Bob" },
-                new UserModel { Name = "Carol" }
+                new UserModel { DisplayName = "Alice" },
+                new UserModel { DisplayName = "Bob" },
+                new UserModel { DisplayName = "Carol" }
             };
 
             for (int i = PlansDataGrid.Items.Count - 1; i >= 0; i--)
