@@ -126,7 +126,10 @@
                             Background="{DynamicResource 70%TransparentBlackBrush}">
                         <DataGrid x:Name="PlansDataGrid" Style="{StaticResource PlansDataGrid}"
                                   HorizontalScrollBarVisibility="Hidden"
-                                  CanUserSortColumns="True">
+                                  CanUserSortColumns="True"
+                                  MouseDoubleClick="PlansDataGrid_MouseDoubleClick"
+                                  CanUserAddRows="False"
+                                  IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Creator]}"
                                                     Binding="{Binding Creator.DisplayName}"

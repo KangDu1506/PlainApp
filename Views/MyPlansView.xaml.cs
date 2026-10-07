@@ -71,5 +71,14 @@ namespace PlainApp.Views
                 }
             }
         }
+
+        private void PlansDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (PlansDataGrid.SelectedItem is PlanModel selectedPlan)
+            {
+                PlanEditorView planEditorView = new PlanEditorView(selectedPlan);
+                planEditorView.ShowDialog();
+            }
+        }
     }
 }
