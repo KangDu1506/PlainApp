@@ -12,7 +12,8 @@ namespace PlainApp.Views
 
         private void NewBlankButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PlanEditorView planEditorView = new PlanEditorView();
+            planEditorView.Show();
         }
     }
 }
