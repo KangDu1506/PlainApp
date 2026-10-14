@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/Views/CollaboratorsViewStyles.xaml"/>
+                <ResourceDictionary Source="../Styles/Views/CollaboratorsViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate x:Key="ChatListTemplate">
