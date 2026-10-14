@@ -6,7 +6,8 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
         <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Height" Value="50"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Padding" Value="10, 5"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -125,5 +126,52 @@
         <Setter Property="Background" Value="{DynamicResource LightBlueBrush}"/>
         <Setter Property="Height" Value="5"/>
         <Setter Property="Margin" Value="10,0"/>
+    </Style>
+
+    <Style x:Key="SearchButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource DeepDarkBlueBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="25"
+                            Height="{TemplateBinding Height}"
+                            Width="{TemplateBinding Width}"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource 70%TransparentBlackBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource DeepDarkBlueBrush}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainContainerBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource 70%TransparentBlackBrush}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Margin" Value="10"/>
     </Style>
 </ResourceDictionary>
