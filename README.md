@@ -55,6 +55,43 @@ Steps:
 - Sanitize any user-provided values used for filenames using `Path.GetInvalidFileNameChars()` before writing files.
 - Use structured logging instead of `Console.WriteLine` when moving to production.
 
+## Developer guide
+
+This section describes the overall architecture, the purpose of the main files and folders, and common conventions used across the codebase.
+
+- Architecture
+  - The app follows a lightweight MVVM pattern for WPF: `Views/` hold XAML UI, `ViewModels/` contain presentation logic, and `Models/` define data objects.
+  - `Services/` contains infrastructure and helper services (persistence, JSON utilities, localization helpers). UI components that are reused live in `Partials/`.
+  - Runtime data is stored as files under the `Data/` folder using simple JSON documents; polymorphic external sources are handled via a `Type` discriminator.
+
+- Project structure (purpose of key folders/files)
+  - `Views/` — XAML views shown to users (e.g., `MyPlansView.xaml`).
+  - `ViewModels/` — view models bound to the views (expose commands, properties, filtering logic).
+  - `Models/` — domain models (`PlanModel`, `TaskModel`, external source models).
+  - `Services/` — application services such as `FileManager.cs` (disk IO), `JSONUtils.cs` (serialization settings), `LanguageManager` and `DateTimeLocalizer`.
+  - `Partials/` — reusable UI pieces (`Header`, `SideMenu`).
+  - `Languages/` and resource `.resx` files — localization strings and date/time formats (`DateFormat_Full`).
+  - `Enums/` — shared enum types used by models and services.
+  - `App.xaml` / `MainWindow.xaml` — WPF startup and shell.
+  - `Data/` (created at runtime) — persisted plans and tasks. Plan folders follow the `Data/plan_<UID>/` pattern and contain `Tasks`, `External Sources`, `External Attachments`.
+
+- Conventions and notes for contributors
+  - Filenames and directory creation:
+    - Plan directories use `plan_<UID>` and task files use `task_<UID>.json`.
+    - Prefer `Directory.CreateDirectory(...)` (idempotent) over existence checks to avoid TOCTOU issues.
+    - Sanitize user-provided strings for filenames with `Path.GetInvalidFileNameChars()`.
+  - Serialization:
+    - Use `JSONUtils.DefaultOption` for (de)serialization to preserve polymorphism (the `Type` discriminator is used for `AExternalSource`).
+    - Keep JSON indented for ease of debugging.
+  - Localization and formatting:
+    - Change languages via `LanguageManager.Instance.ChangeLanguage("<culture-code>")`.
+    - Adjust full datetime presentation with the `DateFormat_Full` resource key.
+  - Threading and IO:
+    - Avoid blocking the UI thread on file IO; run disk operations on background threads or tasks.
+  - Code style and practices:
+    - Project targets .NET 9 and C# 13 — prefer modern language features where they improve clarity.
+    - Add small, focused unit tests when introducing business logic that can be validated.
+
 ## License
 See the repository `LICENSE` file (if present) or add one to clarify project licensing.
 
