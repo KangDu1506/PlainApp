@@ -23,6 +23,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -44,38 +45,65 @@
              Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddATaskDescription], Mode=OneWay}"/>
 
         <Label Grid.Row="2"
-           Grid.Column="0"
-           Target="{Binding ElementName=AddedDateTextBox}"
-           Style="{StaticResource DateAttributeLabel}"
-           Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddedDate]}"/>
-        <TextBox x:Name="AddedDateTextBox"
-             Grid.Row="2"
-             Grid.Column="1"
-             Grid.ColumnSpan="2"
-             Style="{StaticResource DateAttributeTextBox}"
-             Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
+               Grid.Column="0"
+               Target="{Binding ElementName=ImportanceSlider}"
+               Style="{StaticResource GeneralAttributeLabel}"
+               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Importance]}"/>
+        <Grid Grid.Row="2"
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="1" Grid.Column="0"/>
+            <Slider x:Name="ImportanceSlider"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Minimum="1"
+                    Maximum="5"
+                    SmallChange="1"
+                    Value="{Binding Importance, Mode=TwoWay}"
+                    Style="{StaticResource ImportanceSlider}"/>
+            <TextBlock Text="5" Grid.Column="2"/>
+        </Grid>
 
         <Label Grid.Row="3"
-            Grid.Column="0"
-            Target="{Binding ElementName=DueDateTextBox}"
-            Style="{StaticResource DateAttributeLabel}"
-            Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DueDate]}"/>
-        <TextBox x:Name="DueDateTextBox"
-             Grid.Row="3"
-             Grid.Column="1"
-             Grid.ColumnSpan="2"
-             Style="{StaticResource DateAttributeTextBox}"
-             Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
+               Grid.Column="0"
+               Target="{Binding ElementName=AddedDateTextBox}"
+               Style="{StaticResource GeneralAttributeLabel}"
+               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddedDate]}"/>
+        <TextBox x:Name="AddedDateTextBox"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Style="{StaticResource DateAttributeTextBox}"
+                 Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
 
         <Label Grid.Row="4"
-           Grid.Column="0"
-           Target="{Binding ElementName=AssgineeContainer}"
-           Style="{StaticResource AssigneeLabel}"
-           Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Assignees]}"/>
-        <Grid Grid.Row="4"
-          Grid.Column="1"
-          Grid.ColumnSpan="2"
-          Margin="10,5">
+               Grid.Column="0"
+               Target="{Binding ElementName=DueDateTextBox}"
+               Style="{StaticResource GeneralAttributeLabel}"
+               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DueDate]}"/>
+        <TextBox x:Name="DueDateTextBox"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Style="{StaticResource DateAttributeTextBox}"
+                 Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
+
+        <Label Grid.Row="5"
+               Grid.Column="0"
+               Target="{Binding ElementName=AssgineeContainer}"
+               Style="{StaticResource GeneralAttributeLabel}"
+               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Assignees]}"/>
+        <Grid Grid.Row="5"
+              Grid.Column="1"
+              Grid.ColumnSpan="2"
+              Margin="10,5">
             <ToggleButton x:Name="AssigneeDropdownBtn"
                       Height="40"
                       HorizontalContentAlignment="Stretch"
@@ -167,13 +195,25 @@
             </Popup>
         </Grid>
 
-        <Label Grid.Row="5"
-           Grid.Column="0"
-           Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[GivenAttachments]}"/>
+        <Label Grid.Row="6"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Style="{StaticResource GeneralAttributeLabel}"
+               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[GivenAttachments]}"/>
         <ToggleButton x:Name="GivenAttachmentsViewModeToggleButton"
-                  Grid.Row="5"
-                  Grid.Column="2"/>
-        <!-- display attachments in a horizontal list -->
-
+                      Grid.Row="6"
+                      Grid.Column="2"
+                      Content="⬜"
+                      Style="{StaticResource AttachmentsViewModeToggleButton}"/>
+        <Button Grid.Row="7"
+                Grid.ColumnSpan="3">
+            <Button.Content>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <Image Source="../Assets/Icons/NewIcon.png" Width="100" Height="100" Margin="0,0,0,5" Panel.ZIndex="10"/>
+                    <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddAttachment]}"
+                               TextAlignment="Center"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </UserControl>

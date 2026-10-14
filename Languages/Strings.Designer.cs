@@ -61,11 +61,56 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add A Task Description.
+        /// </summary>
+        public static string AddATaskDescription {
+            get {
+                return ResourceManager.GetString("AddATaskDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add A Task Title.
+        /// </summary>
+        public static string AddATaskTitle {
+            get {
+                return ResourceManager.GetString("AddATaskTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Attachments.
+        /// </summary>
+        public static string AddAttachment {
+            get {
+                return ResourceManager.GetString("AddAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added Date.
+        /// </summary>
+        public static string AddedDate {
+            get {
+                return ResourceManager.GetString("AddedDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add a Task.
         /// </summary>
         public static string AddTask {
             get {
                 return ResourceManager.GetString("AddTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assignees.
+        /// </summary>
+        public static string Assignees {
+            get {
+                return ResourceManager.GetString("Assignees", resourceCulture);
             }
         }
         
@@ -223,6 +268,15 @@ namespace PlainApp.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Given Attachments.
+        /// </summary>
+        public static string GivenAttachments {
+            get {
+                return ResourceManager.GetString("GivenAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string HelpTitle {
@@ -246,6 +300,15 @@ namespace PlainApp.Languages {
         public static string HomeTitle {
             get {
                 return ResourceManager.GetString("HomeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Importance.
+        /// </summary>
+        public static string Importance {
+            get {
+                return ResourceManager.GetString("Importance", resourceCulture);
             }
         }
         

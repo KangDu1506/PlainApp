@@ -252,4 +252,25 @@
   <data name="Tabs" xml:space="preserve">
     <value>タブ</value>
   </data>
+  <data name="AddATaskTitle" xml:space="preserve">
+    <value>タスクのタイトルを追加</value>
+  </data>
+  <data name="AddATaskDescription" xml:space="preserve">
+    <value>タスクの説明を追加</value>
+  </data>
+  <data name="Importance" xml:space="preserve">
+    <value>重要度</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>追加日</value>
+  </data>
+  <data name="Assignees" xml:space="preserve">
+    <value>担当者</value>
+  </data>
+  <data name="GivenAttachments" xml:space="preserve">
+    <value>添付資料</value>
+  </data>
+  <data name="AddAttachment" xml:space="preserve">
+    <value>添付資料を追加</value>
+  </data>
 </root>

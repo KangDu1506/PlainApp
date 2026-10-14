@@ -8,6 +8,14 @@
         Title="PlanEditorView"
         ResizeMode="NoResize"
         WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Views/PlanEditorViewStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/CoreWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

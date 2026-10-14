@@ -70,7 +70,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DateAttributeLabel" TargetType="Label">
+    <Style x:Key="GeneralAttributeLabel" TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}"/>
         <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -106,12 +106,110 @@
         </Setter>
     </Style>
 
-    <Style x:Key="AssigneeLabel" TargetType="Label">
-        <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}"/>
-        <Setter Property="FontFamily" Value="{DynamicResource AppCurrentFont}"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
+    <Style x:Key="ImportanceSlider" TargetType="Slider">
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid Height="40" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Min label -->
+                        <TextBlock Grid.Column="0"
+                                   VerticalAlignment="Center"
+                                   Margin="6,0"
+                                   Foreground="{DynamicResource LightBlueBrush}"
+                                   FontFamily="{DynamicResource AppCurrentFont}"
+                                   FontSize="12"
+                                   Text="1" />
+
+                        <Track x:Name="PART_Track" Grid.Column="1" VerticalAlignment="Center">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="Slider.DecreaseLarge" Focusable="False" IsTabStop="False">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate TargetType="RepeatButton">
+                                            <Border Height="6"
+                                                    CornerRadius="3"
+                                                    Background="{DynamicResource BareBlackBrush}"
+                                                    Opacity="0.15"/>
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="Slider.IncreaseLarge" Focusable="False" IsTabStop="False">
+                                    <RepeatButton.Template>
+                                        <ControlTemplate TargetType="RepeatButton">
+                                            <Border Height="6"
+                                                    CornerRadius="3"
+                                                    Background="{DynamicResource BareBlackBrush}"
+                                                    Opacity="0.15"/>
+                                        </ControlTemplate>
+                                    </RepeatButton.Template>
+                                </RepeatButton>
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Width="18" Height="18" Focusable="False">
+                                    <Thumb.Template>
+                                        <ControlTemplate TargetType="Thumb">
+                                            <Border Width="18" Height="18"
+                                                    CornerRadius="9"
+                                                    Background="{DynamicResource LightBlueBrush}"
+                                                    BorderBrush="{DynamicResource BareBlackBrush}"
+                                                    BorderThickness="1"
+                                                    Effect="{x:Null}"/>
+                                        </ControlTemplate>
+                                    </Thumb.Template>
+                                </Thumb>
+                            </Track.Thumb>
+                        </Track>
+
+                        <!-- Max label -->
+                        <TextBlock Grid.Column="2"
+                                   VerticalAlignment="Center"
+                                   Margin="6,0"
+                                   Foreground="{DynamicResource LightBlueBrush}"
+                                   FontFamily="{DynamicResource AppCurrentFont}"
+                                   FontSize="12"
+                                   Text="5" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_Track" Property="Opacity" Value="0.95" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="PART_Track" Property="Opacity" Value="1" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AttachmentsViewModeToggleButton" TargetType="ToggleButton">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="40"/>
         <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource LightBlueBrush}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{DynamicResource 70%TransparentBlackBrush}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

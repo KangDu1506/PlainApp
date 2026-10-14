@@ -252,4 +252,25 @@
   <data name="Tabs" xml:space="preserve">
     <value>Các thẻ</value>
   </data>
+  <data name="AddATaskTitle" xml:space="preserve">
+    <value>Thêm Tiêu đề cho Nhiệm vụ</value>
+  </data>
+  <data name="AddATaskDescription" xml:space="preserve">
+    <value>Thêm Mô tả cho Nhiệm vụ</value>
+  </data>
+  <data name="Importance" xml:space="preserve">
+    <value>Độ quan trọng</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>Ngày thêm</value>
+  </data>
+  <data name="Assignees" xml:space="preserve">
+    <value>Người được ủy thác</value>
+  </data>
+  <data name="GivenAttachments" xml:space="preserve">
+    <value>Tệp đính kèm cho trước</value>
+  </data>
+  <data name="AddAttachment" xml:space="preserve">
+    <value>Thêm tệp đính kèm</value>
+  </data>
 </root>

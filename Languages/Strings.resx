@@ -252,4 +252,25 @@
   <data name="Tabs" xml:space="preserve">
     <value>Tabs</value>
   </data>
+  <data name="AddATaskTitle" xml:space="preserve">
+    <value>Add A Task Title</value>
+  </data>
+  <data name="AddATaskDescription" xml:space="preserve">
+    <value>Add A Task Description</value>
+  </data>
+  <data name="Importance" xml:space="preserve">
+    <value>Importance</value>
+  </data>
+  <data name="AddedDate" xml:space="preserve">
+    <value>Added Date</value>
+  </data>
+  <data name="Assignees" xml:space="preserve">
+    <value>Assignees</value>
+  </data>
+  <data name="GivenAttachments" xml:space="preserve">
+    <value>Given Attachments</value>
+  </data>
+  <data name="AddAttachment" xml:space="preserve">
+    <value>Add Attachments</value>
+  </data>
 </root>
