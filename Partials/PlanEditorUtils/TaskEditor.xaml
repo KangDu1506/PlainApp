@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PlainApp.Partials.PlanEditorUtils"
              xmlns:services="clr-namespace:PlainApp.Services"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="500">
@@ -18,174 +17,198 @@
     <Grid Style="{StaticResource MainEditorContainer}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0"
+                    VerticalAlignment="Top">
+            <TextBox Style="{StaticResource TitleTextBox}"
+                     Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddATaskTitle], Mode=OneWay}"/>
 
-        <TextBox Grid.Row="0"
-             Grid.ColumnSpan="3"
-             Style="{StaticResource TitleTextBox}"
-             Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddATaskTitle], Mode=OneWay}"/>
+            <TextBox Style="{StaticResource DescriptionTextBox}"
+                     Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddATaskDescription], Mode=OneWay}"/>
 
-        <TextBox Grid.Row="1"
-             Grid.ColumnSpan="3"
-             Style="{StaticResource DescriptionTextBox}"
-             Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddATaskDescription], Mode=OneWay}"/>
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="2"
-               Grid.Column="0"
-               Target="{Binding ElementName=ImportanceSlider}"
-               Style="{StaticResource GeneralAttributeLabel}"
-               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Importance]}"/>
-        <Grid Grid.Row="2"
-              Grid.Column="1"
-              Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            
-            <TextBlock Text="1" Grid.Column="0"/>
-            <Slider x:Name="ImportanceSlider"
-                    Grid.Column="1"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center"
-                    Minimum="1"
-                    Maximum="5"
-                    SmallChange="1"
-                    Value="{Binding Importance, Mode=TwoWay}"
-                    Style="{StaticResource ImportanceSlider}"/>
-            <TextBlock Text="5" Grid.Column="2"/>
-        </Grid>
+                <Label Grid.Column="0"
+                       Target="{Binding ElementName=ImportanceSlider}"
+                       Style="{StaticResource GeneralAttributeLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Importance]}"/>
+                <Grid Grid.Column="1"
+                      Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="3"
-               Grid.Column="0"
-               Target="{Binding ElementName=AddedDateTextBox}"
-               Style="{StaticResource GeneralAttributeLabel}"
-               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddedDate]}"/>
-        <TextBox x:Name="AddedDateTextBox"
-                 Grid.Row="3"
-                 Grid.Column="1"
-                 Grid.ColumnSpan="2"
-                 Style="{StaticResource DateAttributeTextBox}"
-                 Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
-
-        <Label Grid.Row="4"
-               Grid.Column="0"
-               Target="{Binding ElementName=DueDateTextBox}"
-               Style="{StaticResource GeneralAttributeLabel}"
-               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DueDate]}"/>
-        <TextBox x:Name="DueDateTextBox"
-                 Grid.Row="4"
-                 Grid.Column="1"
-                 Grid.ColumnSpan="2"
-                 Style="{StaticResource DateAttributeTextBox}"
-                 Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
-
-        <Label Grid.Row="5"
-               Grid.Column="0"
-               Target="{Binding ElementName=AssgineeContainer}"
-               Style="{StaticResource GeneralAttributeLabel}"
-               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Assignees]}"/>
-        <Grid Grid.Row="5"
-              Grid.Column="1"
-              Grid.ColumnSpan="2"
-              Margin="10,5">
-            <ToggleButton x:Name="AssigneeDropdownBtn"
-                          Style="{StaticResource AssigneeDropdownToggleButtonStyle}">
-                <Grid>
-                    <ItemsControl ItemsSource="{Binding Assignees}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Grid x:Name="AvatarContainer" Margin="0,0,4,0">
-                                    <Ellipse Width="28" Height="28">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="{Binding AvatarUrl}" Stretch="UniformToFill"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                </Grid>
-
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding IsSelected}" Value="False">
-                                        <Setter TargetName="AvatarContainer" Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
-                    <TextBlock Text="▼" 
-                               Style="{StaticResource AssigneeDropdownArrowTextStyle}"/>
+                    <TextBlock Text="1" Grid.Column="0"/>
+                    <Slider x:Name="ImportanceSlider"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Minimum="1"
+                            Maximum="5"
+                            SmallChange="1"
+                            Value="{Binding Importance, Mode=TwoWay}"
+                            Style="{StaticResource ImportanceSlider}"/>
+                    <TextBlock Text="5" Grid.Column="2"/>
                 </Grid>
-            </ToggleButton>
+            </Grid>
 
-            <Popup IsOpen="{Binding IsChecked, ElementName=AssigneeDropdownBtn, Mode=TwoWay}"
-               StaysOpen="False"
-               PlacementTarget="{Binding ElementName=AssigneeDropdownBtn}"
-               Placement="Bottom"
-               AllowsTransparency="True">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <Border Width="{Binding ActualWidth, ElementName=AssigneeDropdownBtn}"
-                        Style="{StaticResource AssigneePopupBorderStyle}">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <ItemsControl ItemsSource="{Binding Assignees}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
-                                          Margin="8,6"
-                                          VerticalContentAlignment="Center">
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                            <Ellipse Width="24" Height="24" Margin="6,0,8,0">
+                <Label Grid.Column="0"
+                       Target="{Binding ElementName=AddedDateTextBox}"
+                       Style="{StaticResource GeneralAttributeLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddedDate]}"/>
+                <TextBox x:Name="AddedDateTextBox"
+                         Grid.Column="1"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource DateAttributeTextBox}"
+                         Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Target="{Binding ElementName=DueDateTextBox}"
+                       Style="{StaticResource GeneralAttributeLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DueDate]}"/>
+                <TextBox x:Name="DueDateTextBox"
+                         Grid.Column="1"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource DateAttributeTextBox}"
+                         Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[DateFormat_Full], Mode=OneWay}"/>
+            </Grid>
+
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Target="{Binding ElementName=AssigneeDropdownBtn}"
+                       Style="{StaticResource GeneralAttributeLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[Assignees]}"/>
+                <Grid Grid.Column="1"
+                      Grid.ColumnSpan="2"
+                      Margin="10,5">
+                    <ToggleButton x:Name="AssigneeDropdownBtn"
+                                  Style="{StaticResource AssigneeDropdownToggleButtonStyle}">
+                        <Grid>
+                            <ItemsControl ItemsSource="{Binding Assignees}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid x:Name="AvatarContainer" Margin="0,0,4,0">
+                                            <Ellipse Width="28" Height="28">
                                                 <Ellipse.Fill>
                                                     <ImageBrush ImageSource="{Binding AvatarUrl}" Stretch="UniformToFill"/>
                                                 </Ellipse.Fill>
                                             </Ellipse>
-                                            <TextBlock Text="{Binding Name}" 
-                                                       Style="{StaticResource AssigneeItemNameTextStyle}"/>
-                                        </StackPanel>
-                                    </CheckBox>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </ScrollViewer>
-                </Border>
-            </Popup>
-        </Grid>
+                                        </Grid>
 
-        <Label Grid.Row="6"
-               Grid.Column="0"
-               Grid.ColumnSpan="2"
-               Style="{StaticResource GeneralAttributeLabel}"
-               Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[GivenAttachments]}"/>
-        <ToggleButton x:Name="GivenAttachmentsViewModeToggleButton"
-                      Grid.Row="6"
-                      Grid.Column="2"
-                      Content="⬜"
-                      Style="{StaticResource AttachmentsViewModeToggleButton}"/>
-        <Button Grid.Row="7"
-                Grid.ColumnSpan="3"
-                Style="{StaticResource TaskAddAttachmentButtonStyle}">
+                                        <DataTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding IsSelected}" Value="False">
+                                                <Setter TargetName="AvatarContainer" Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </DataTemplate.Triggers>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <TextBlock Text="▼" 
+                                       Style="{StaticResource AssigneeDropdownArrowTextStyle}"/>
+                        </Grid>
+                    </ToggleButton>
+
+                    <Popup IsOpen="{Binding IsChecked, ElementName=AssigneeDropdownBtn, Mode=TwoWay}"
+                           StaysOpen="False"
+                           PlacementTarget="{Binding ElementName=AssigneeDropdownBtn}"
+                           Placement="Bottom"
+                           AllowsTransparency="True">
+
+                        <Border Width="{Binding ActualWidth, ElementName=AssigneeDropdownBtn}"
+                                Style="{StaticResource AssigneePopupBorderStyle}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding Assignees}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"
+                                                      Margin="8,6"
+                                                      VerticalContentAlignment="Center">
+                                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                    <Ellipse Width="24" Height="24" Margin="6,0,8,0">
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="{Binding AvatarUrl}" Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <TextBlock Text="{Binding Name}" 
+                                                               Style="{StaticResource AssigneeItemNameTextStyle}"/>
+                                                </StackPanel>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Style="{StaticResource GeneralAttributeLabel}"
+                       Content="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[GivenAttachments]}"/>
+                <ToggleButton x:Name="GivenAttachmentsViewModeToggleButton"
+                              Grid.Column="2"
+                              Content="⬜"
+                              Style="{StaticResource AttachmentsViewModeToggleButton}"/>
+            </Grid>
+        </StackPanel>
+
+        <Button Grid.Row="2"
+                Margin="15"
+                Style="{StaticResource TaskAddAttachmentButtonStyle}"
+                Click="AddAttachments_Click"
+                PreviewKeyDown="AddAttachments_PreviewKeyDown"
+                DragOver="AddAttachments_DragOver"
+                Drop="AddAttachments_Drop"
+                AllowDrop="True"
+                GotFocus="AddAttachments_GotFocus">
             <Button.Content>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                    <Image Source="../Assets/Icons/NewIcon.png" Width="100" Height="100" Margin="0,0,0,5" Panel.ZIndex="10"/>
+                    <Image Source="../../Assets/Icons/NewIcon.png" Width="50" Height="50" Margin="0,0,0,5" Panel.ZIndex="10"/>
                     <TextBlock Text="{Binding Source={x:Static services:LanguageManager.Instance}, Path=[AddAttachment]}"
                                TextAlignment="Center"/>
                 </StackPanel>
