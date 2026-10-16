@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlainApp.Views"
+        xmlns:task_editor_partial="clr-namespace:PlainApp.Partials.PlanEditorUtils"
         mc:Ignorable="d"
         Title="PlanEditorView"
         ResizeMode="NoResize"
@@ -34,11 +35,19 @@
                 Grid.Row="1"
                 Grid.ColumnSpan="3"/>
 
-        <Canvas x:Name="MenuCanvas"
-                Panel.ZIndex="1"
-                Grid.Row="1"
-                Grid.ColumnSpan="3">
-            
-        </Canvas>
+        <Grid x:Name="RightPanel"
+              Grid.Row="1"
+              Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="RightPanelTabs"
+                        Grid.Column="0">
+            </StackPanel>
+
+            <task_editor_partial:TaskEditor Grid.Column="1"/>
+        </Grid>
     </Grid>
 </Window>

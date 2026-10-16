@@ -10,6 +10,8 @@
         public DateTime AddedDate { get; set; } = DateTime.Now;
         public DateTime DueDate { get; set; } = DateTime.Now.AddDays(7);
         public float Progress { get; set; } = 0.0f;
+        // Importance level from 1 (low) to 5 (high)
+        public int Importance { get; set; } = 1;
         public List<UserModel> Assignees { get; set; } = new List<UserModel>();
         public List<AExternalSource> ExternalSources { get; set; } = new List<AExternalSource>();
         public List<AExternalSource> ExternalAttachments { get; set; } = new List<AExternalSource>();
